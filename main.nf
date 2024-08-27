@@ -31,6 +31,7 @@ include { getGenomeAttribute      } from './subworkflows/local/utils_nfcore_smrn
 params.fasta            = getGenomeAttribute('fasta')
 params.mirtrace_species = getGenomeAttribute('mirtrace_species')
 params.bowtie_index     = getGenomeAttribute('bowtie')
+//params.bowtie2        = getGenomeAttribute('bowtie2')
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
