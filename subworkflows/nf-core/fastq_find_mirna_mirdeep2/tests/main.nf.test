@@ -26,7 +26,7 @@ nextflow_workflow {
                 """
                 input[0] = [
                     [ id:'genome' ], // meta map
-                    file('https://github.com/nf-core/test-datasets/raw/smrnaseq/reference/genome.fa', checkIfExists: true)
+                    file('https://raw.githubusercontent.com/nf-core/test-datasets/smrnaseq/reference/genome.fa', checkIfExists: true)
                 ]
                 """
             }
@@ -56,8 +56,8 @@ nextflow_workflow {
 
                 input[3] = [
                     [ id:'mirna_mature_hairpin'], // meta map
-                    file('https://github.com/nf-core/test-datasets/raw/smrnaseq/MirGeneDB/mirgenedb_hsa_mature.fa', checkIfExists: true),
-                    file('https://github.com/nf-core/test-datasets/raw/smrnaseq/MirGeneDB/mirgenedb_hsa_hairpin.fa', checkIfExists: true),
+                    file('https://raw.githubusercontent.com/nf-core/test-datasets/smrnaseq/MirGeneDB/mirgenedb_hsa_mature.fa', checkIfExists: true),
+                    file('https://raw.githubusercontent.com/nf-core/test-datasets/smrnaseq/MirGeneDB/mirgenedb_hsa_hairpin.fa', checkIfExists: true),
                     []
                 ]
                 """

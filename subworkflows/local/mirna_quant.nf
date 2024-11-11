@@ -102,11 +102,14 @@ workflow MIRNA_QUANT {
     //         .map{ gtf, species -> [ [id:species.toString()], gtf, species ] }
     //         .collect()
 
-    ch_mirna_gtf_species = ch_mirna_gtf.map{ meta, gtf-> [ meta, gtf, meta.species ] }
+    ch_mirna_gtf_species = ch_mirna_gtf.map{ meta, gtf-> [ meta, gtf, meta.species ] }.collect()
     ch_mirna_gtf_species.dump(tag:"ch_mirna_gtf_species")
     BOWTIE_MAP_SEQCLUSTER.out.bam.dump(tag:"BOWTIE_MAP_SEQCLUSTER.out.bam")
     FORMAT_HAIRPIN.out.formatted_fasta.dump(tag:"FORMAT_HAIRPIN.out.formatted_fasta")
 
+    ch_mirna_gtf_species.dump(tag:"ch_mirna_gtf_species")
+    ch_mirtrace_species.dump(tag:"ch_mirtrace_species")
+    ch_mirna_gtf.dump(tag:"ch_mira_gtf")
     BAM_STATS_MIRNA_MIRTOP(BOWTIE_MAP_SEQCLUSTER.out.bam, FORMAT_HAIRPIN.out.formatted_fasta, ch_mirna_gtf_species )
 
     ch_mirtop_logs = BAM_STATS_MIRNA_MIRTOP.out.stats_log
